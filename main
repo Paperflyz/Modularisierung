@@ -1,0 +1,62 @@
+#include <iostream>
+#include "module.h"
+#include "student.h"
+#include <string>
+#include <cmath>
+
+using std::cin;
+using std::cout;
+using std::endl;
+
+
+void printReport(Student student)
+{
+    int length = 50;
+    vector <Module> modules = student.getModules();
+
+    int avgGrade = (student.getGrades()/modules.size());
+
+
+
+
+
+    for (int i = 0; i < length; ++i)
+    {
+        cout << "-";
+    }
+    cout << endl << "REPORT CARD for " << student.getStudent();
+
+    for (int j = 0; j < modules.size(); ++j)
+    {
+        cout << endl << modules[j].toString(length);
+    }
+
+    cout << endl;
+
+    for (int k = 0; k < length; ++k)
+    {
+        cout << "-";
+    }
+
+    cout << endl << "\nAverage Grade" << avgGrade << endl;
+
+    for (int g = 0; g < length; ++g)
+    {
+        cout << "-";
+    }
+
+    cout << endl;
+}
+
+int main()
+{
+    string studentName;
+    cout << "What is the name of the Student? ";
+    cin >> studentName;
+    Student ich = Student(studentName);
+    printReport(ich);
+
+
+
+
+}
